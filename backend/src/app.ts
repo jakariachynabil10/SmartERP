@@ -12,6 +12,8 @@ import posRoutes from './routes/posRoutes';
 import returnRoutes from './routes/returnRoutes';
 import supplierRoutes from './routes/supplierRoutes';
 import auditRoutes from './routes/auditRoutes';
+import hrRoutes from './routes/hrRoutes';
+import analyticsRoutes from './routes/analyticsRoutes';
 import { logger } from './config/logger';
 
 const app = express();
@@ -60,6 +62,8 @@ app.use('/api/v1/pos', posRoutes);
 app.use('/api/v1/returns', returnRoutes);
 app.use('/api/v1/suppliers', supplierRoutes);
 app.use('/api/v1/audit', auditRoutes);
+app.use('/api/v1/hr', hrRoutes);
+app.use('/api/v1/analytics', analyticsRoutes);
 
 // Global Error Handler
 app.use((err: any, _req: express.Request, res: express.Response, _next: express.NextFunction) => {

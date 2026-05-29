@@ -26,10 +26,7 @@ export function authenticate(req: AuthenticatedRequest, res: Response, next: Nex
       role: payload.role,
     };
 
-    // Run remaining middleware and handlers within the Tenant Storage context
-    tenantStore.run(req.user, () => {
-      next();
-    });
+    tenantStore.run(req.user, () => next());
     return;
   } catch (error) {
     logger.debug({ error }, 'JWT verification failed');
